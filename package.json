@@ -1,0 +1,49 @@
+{
+  "name": "budpay-react-v2",
+  "version": "1.1.0",
+  "description": "React Library for BudPay Payment Gateway",
+  "author": {
+    "name": "BudPay Developers, Sam Owolabi",
+    "email": "owolabisamuel15@gmail.com",
+    "url": "https://budpay.com/"
+  },
+  "keywords": [
+    "ReactJS",
+    "React",
+    "Payment Gateway",
+    "BudPay",
+    "BudPay React",
+    "BudPay ReactJS",
+    "BudPay ReactJS Payment Gateway",
+    "BudPay React Payment Gateway",
+    "BudPay Payment Gateway",
+    "BudPay Payment Gateway React",
+    "BudPay Payment Gateway ReactJS",
+    "BudPay Payment Gateway ReactJS Hook",
+    "BudPay Payment Gateway React Hook"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "bump": "npm version",
+    "example": "cd example && yarn install && yarn package",
+    "prepublishOnly": "yarn build",
+    "watch": "nodemon --watch src --exec \"yarn build\""
+  },
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colbyfayock/budpay-react-v2"
+  },
+  "bugs": {
+    "url": "https://github.com/colbyfayock/budpay-react-v2/issues"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "nodemon": "^2.0.12"
+  }
+}
