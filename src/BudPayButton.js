@@ -5,8 +5,8 @@ export default function BudPayButton(config) {
     
     // Button Styles
     let buttonStyles = {
-        border: 'none', background: '#beed4f',
-        color: '#000000', borderRadius: '6px',
+        border: 'none', background: '#5018cd',
+        color: '#ffffff', borderRadius: '6px',
         margin: '1rem', cursor: 'pointer'
     }
     let smallButtonStyles = {

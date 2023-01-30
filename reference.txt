@@ -1,0 +1,47 @@
+# Reference
+# https://www.freecodecamp.org/news/how-to-create-a-custom-react-hook-and-publish-it-to-npm/
+
+# Documentation
+# To install the package, run the following command in your terminal
+npm i budpay-react-v2
+
+import { BudPayButton, useBudPayPayment, closeBudPayPaymentModal } from 'budpay-react-v2';
+
+  const config = {
+    api_key: 'sk_live_*******************', // Replace with your secret key
+    email: 'maryadams@gmail.com',
+    amount: '100',
+    first_name: 'Sam',
+    last_name: 'Owolabi',
+    currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+  }
+
+  const budPayConfig = {
+    ...config,
+    text: 'Pay with BudPay',
+    btnSize: 'medium',
+    callback_url: 'https://marystore.com/',
+    callback: function (response) {
+      closeBudPayPaymentModal();  // this will close the modal programmatically
+      //this happens after the payment is completed successfully
+      alert('Payment complete! Reference: ' + response.reference + ', Status: ' + response.status);
+    },
+    onClose: function (response) {
+      console.log(response)
+      alert('Transaction was not completed, window closed.');
+    },
+  }
+
+  const handleBudPayPayment = useBudPayPayment(budPayConfig);
+
+  Component
+   <BudPayButton {...budPayConfig} />
+
+  Hook
+  return (
+    <div>
+      <button onClick={handleBudPayPayment}>Pay with BudPay</button>
+    </div>
+  );
+ 
+

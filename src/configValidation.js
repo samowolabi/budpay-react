@@ -1,21 +1,26 @@
 export const VerifyRequiredDataInConfig = (config) => {
     let verifyFlag = false;
     // API Key
-    if(config.hasOwnProperty('key')) {
+    if(config.hasOwnProperty('api_key')) {
         verifyFlag = true;
-    } else { verifyFlag = false; console.log('Please enter test or live public key into config') }
+    } else { verifyFlag = false; console.log('Please enter test or live public key (api_key) into config. Required!'); return verifyFlag; }
 
     // Amount
     if(config.hasOwnProperty('amount')) {
         verifyFlag = true;
-    } else { verifyFlag = false; console.log('Please enter amount key into config') }
+    } else { verifyFlag = false; console.log('Please enter (amount) key into config. Required!'); return verifyFlag; }
+
+    // Currency
+    if(config.hasOwnProperty('currency')) {
+        verifyFlag = true;
+    } else { verifyFlag = false; console.log('Please enter (currency) key into config. Required!'); return verifyFlag; }
 
     // Email
     if(config.hasOwnProperty('email')) {
         verifyFlag = true;
-    } else { verifyFlag = false; console.log('Please enter email key into config') }
+    } else { verifyFlag = false; console.log('Please enter email key into config. Required!'); return verifyFlag; }
 
-     return verifyFlag;
+    return verifyFlag;
 };
 
 

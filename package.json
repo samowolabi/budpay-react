@@ -1,6 +1,6 @@
 {
   "name": "budpay-react-v2",
-  "version": "1.1.0",
+  "version": "1.1.7",
   "description": "React Library for BudPay Payment Gateway",
   "author": {
     "name": "BudPay Developers, Sam Owolabi",
@@ -34,10 +34,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/colbyfayock/budpay-react-v2"
+    "url": "https://github.com/samowolabi/budpay-react"
   },
   "bugs": {
-    "url": "https://github.com/colbyfayock/budpay-react-v2/issues"
+    "url": "https://github.com/samowolabi/budpay-react/issues"
   },
   "dependencies": {
     "@babel/cli": "^7.14.8",

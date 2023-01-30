@@ -5,14 +5,13 @@ import { OpenSVGLoaderFuncBudPay, RemoveSVGLoaderFuncBudPay } from './assetsFunc
 export default function useBudPayPayment(config) {
 
     const iFrameValidateAndReturnDataInput = () => {
-        console.log('config', config)
 
         if (!config) {
             console.log('Error!. Please check our documentation for correct configurations.');
             return { status: false }
         }
 
-        if (!VerifyRequiredDataInConfig(config)) {
+        if (VerifyRequiredDataInConfig(config) === false) {
             console.log('Set required field (Amount, Key, Email) data in the config');
             return { status: false }
         }
@@ -57,7 +56,11 @@ export default function useBudPayPayment(config) {
 
     // load iframe to website body and send config data
     const loadIframeToWebsiteBody = () => {
-        if (!iFrameValidateAndReturnDataInput().status) { console.log('Could not load Payment Modal. Error. Please try Again') }
+        if (!iFrameValidateAndReturnDataInput().status) { 
+            alert('Error. Could not load Payment Modal. Please check console for more details.');
+            console.log('Could not load Payment Modal. Error. Please try Again');
+            return false; 
+        }
         document.body.appendChild(OpenSVGLoaderFuncBudPay()); // Append SVG Loader
         document.body.appendChild(createPaymentModalIFrame()); // Append Iframe
 
@@ -82,12 +85,10 @@ export default function useBudPayPayment(config) {
                 } catch (err) { return [err] }
             }
 
-            console.log(event.data)
-
             const [err, result] = safeJsonParse(event.data);
             if (!err) {
                 if (result.type === 'closeTransaction') { closePaymentTransactionCallback(result, config) }
-                if (result.type === 'cancelPayment') { closeBudPayPaymentModal(config) }
+                if (result.type === 'cancelPayment') { closeBudPayPaymentModal('internalCall', result, config) }
             }
         });
     }
